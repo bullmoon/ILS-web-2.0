@@ -1,0 +1,12 @@
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    {% for item in data %}
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.age }}</td>
+      </tr>
+    {% endfor %}
+  </table>
