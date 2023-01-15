@@ -5,7 +5,7 @@ The current version of the app is built using Python, with the Flask web framewo
 ## Public code to GitHub
 https://github.com/bullmoon/ILS-web-2.0
 ## Build image
-The script for building a Docker image, named "dockerimagebuild.sh", is located in the "tools" directory.
+The script for building a Docker image, named "dockerimagebuild.sh", is located in the "tools/Docker" directory.
 ## Public image to DockerHub
 https://hub.docker.com/repository/docker/bullhorn/ils2
 ## Create a Kubernetes configuration

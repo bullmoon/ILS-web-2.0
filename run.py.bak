@@ -1,0 +1,12 @@
+from flask import Flask
+import sys
+sys.path.append('ilswebprj')
+
+from ilswebprj.routes import app
+
+app = Flask(__name__, template_folder='templates')
+
+# your application routes and views
+
+if __name__ == '__main__':
+    app.run(debug=True)
