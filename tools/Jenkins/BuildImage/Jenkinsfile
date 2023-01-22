@@ -1,0 +1,25 @@
+pipeline {
+    agent {
+        node {
+            label 'Dockerhost'
+        }
+    }
+
+    environment {
+        DOCKERHUB = 'bullhorn'
+        IMGNAME = 'ils2'
+        TAG = 'dev'
+    }
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/bullmoon/ILS-web-2.0.git'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t ${DOCKERHUB}/${IMGNAME}:${TAG} ."
+            }
+        }
+    }
+}
