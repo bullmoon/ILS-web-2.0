@@ -1,9 +1,10 @@
 pipeline {
-    agent {
+    /*agent {
         node {
             label 'Dockerhost'
         }
-    }
+    }*/
+    agent any
 
     environment {
         DOCKERHUB = 'bullhorn'
@@ -12,9 +13,9 @@ pipeline {
     }
     stages {
         stage('Clone Repository') {
-        agent {
+        /* agent {
             label 'Dockerhost'
-        }
+        }*/
             steps {
                 git 'https://github.com/bullmoon/ILS-web-2.0.git'
                 // checkout([$class: 'GitSCM', branches: [[name: '*/main']]])
