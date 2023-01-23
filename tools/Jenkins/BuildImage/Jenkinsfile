@@ -17,9 +17,10 @@ pipeline {
             label 'Dockerhost'
         }*/
             steps {
-                git 'https://github.com/bullmoon/ILS-web-2.0.git'
+                // git 'https://github.com/bullmoon/ILS-web-2.0.git'
                 // checkout([$class: 'GitSCM', branches: [[name: '*/main']]])
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-github-bullmoon', url: 'git@github.com:bullmoon/ILS-web-2.0.git']]])
+                // checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-github-bullmoon', url: 'git@github.com:bullmoon/ILS-web-2.0.git']]])
+                checkout scm
             }
         }
         stage('Build Docker Image') {
