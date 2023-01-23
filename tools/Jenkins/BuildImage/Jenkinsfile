@@ -20,6 +20,8 @@ pipeline {
                 // git 'https://github.com/bullmoon/ILS-web-2.0.git'
                 // checkout([$class: 'GitSCM', branches: [[name: '*/main']]])
                 // checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-github-bullmoon', url: 'git@github.com:bullmoon/ILS-web-2.0.git']]])
+                bat 'del /F /S /Q *.*'
+                bat 'for /d %%x in (.\\*) do @rd /s /q %%x'
                 checkout scm
             }
         }
