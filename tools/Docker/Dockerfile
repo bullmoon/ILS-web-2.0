@@ -3,7 +3,7 @@ FROM python:latest
 LABEL maintainer="VV"
 LABEL version="dev"
 
-ENV forkfolder /app
+ENV forkfolder /ilswebprj
 WORKDIR ${forkfolder}
 
 COPY requirements.txt .
