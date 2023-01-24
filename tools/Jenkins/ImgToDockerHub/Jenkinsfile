@@ -1,0 +1,23 @@
+pipeline {
+    agent {
+            label 'Dockerhost'
+    }
+    environment {
+        DOCKERHUB = 'bullhorn'
+        IMGNAME = 'ils2'
+        TAG = 'dev'
+    }
+    stages {
+        stage('Clone Repository') {
+            steps {
+                deleteDir()
+                checkout scm
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -f tools/Docker/Dockerfile -t ${DOCKERHUB}/${IMGNAME}:${TAG} ."
+            }
+        }
+    }
+}

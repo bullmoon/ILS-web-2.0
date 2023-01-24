@@ -2,26 +2,22 @@ pipeline {
     agent {
             label 'Dockerhost'
     }
-    // agent none
 
     environment {
         DOCKERHUB = 'bullhorn'
         IMGNAME = 'ils2'
         TAG = 'dev'
     }
+
     stages {
+
         stage('Clone Repository') {
-        /* agent {
-            label 'Dockerhost'
-        } */
             steps {
-                // git 'https://github.com/bullmoon/ILS-web-2.0.git'
-                // checkout([$class: 'GitSCM', branches: [[name: '*/main']]])
-                // checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-github-bullmoon', url: 'git@github.com:bullmoon/ILS-web-2.0.git']]])
                 deleteDir()
                 checkout scm
             }
         }
+
         stage('Build Docker Image') {
             steps {
                 sh "docker build -f tools/Docker/Dockerfile -t ${DOCKERHUB}/${IMGNAME}:${TAG} ."
