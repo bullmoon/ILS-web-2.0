@@ -3,7 +3,7 @@ FROM python:latest
 LABEL maintainer="VV"
 LABEL version="dev"
 
-ENV forkfolder /app
+ENV forkfolder tools/Docker/content
 WORKDIR ${forkfolder}
 
 COPY requirements.txt .
