@@ -18,3 +18,11 @@ img {
     margin: 0 auto;
     width: 30%;
 }
+
+th {
+   background-color: lightgray;
+}
+
+td {
+   width: 70px;
+}

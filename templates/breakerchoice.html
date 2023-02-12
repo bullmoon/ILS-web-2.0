@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{{ url_for('brchoice') }}" method="post">
+    <label for="breaker-select">Select Breaker:</label>
+    <select id="breaker-select" name="breaker">
+      <option value="T4">Tmax T4</option>
+      <option value="T5">Tmax T5</option>
+      <option value="T6">Tmax T6</option>
+      <option value="T7">Tmax T7</option>
+    </select>
+    <label for="amperage-select">Select Amperage:</label>
+    <select id="amperage-select" name="amperage">
+      {% if amperages %}
+        {% for amperage in amperages %}
+          <option value="{{ amperage }}">{{ amperage }}</option>
+        {% endfor %}
+      {% endif %}
+    </select>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

@@ -1,12 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <table>
     <tr>
-      <th>Name</th>
-      <th>Age</th>
+      <th>Material</th>
+      <th>Thickness</th>
     </tr>
     {% for item in data %}
       <tr>
-        <td>{{ item.name }}</td>
-        <td>{{ item.age }}</td>
+        <td>{{ item.material }}</td>
+        <td>{{ item.thickness }}</td>
       </tr>
     {% endfor %}
   </table>
+<p></p>
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Model</th>
+      <th>Current</th>
+    </tr>
+    {% for item in breakers_list %}
+      <tr>
+        <td>{{ item.Type }}</td>
+        <td>{{ item.Model }}</td>
+        <td>{{ item.Current }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+{% endblock %}

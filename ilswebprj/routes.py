@@ -1,5 +1,6 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, request, redirect
 import os
+from src import tables, datalists
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
@@ -17,5 +18,16 @@ def about():
 
 @app.route('/table')
 def table():
-    data = get_data()
-    return render_template('table.html', data=data)
+    data = tables.get_data()
+    br_type = tables.get_breaker()
+    return render_template('table.html', data=data, breakers_list=br_type)
+
+@app.route('/brchoice', methods=['GET', 'POST'])
+def brchoice():
+    breakers = datalists.breakers
+    if request.method == 'POST':
+        breaker_select = request.form['breaker']
+        amperages = breakers[breaker_select]
+        return render_template('breakerchoice.html', amperages=amperages)
+
+    return render_template('breakerchoice.html')
