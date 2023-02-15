@@ -1,0 +1,51 @@
+Collecting mariadb
+  Using cached mariadb-1.1.5.post3.tar.gz (82 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [30 lines of output]
+      /bin/sh: 1: mariadb_config: not found
+      Traceback (most recent call last):
+        File "/mnt/code/ILS/ILS-web-2.0/venv/lib/python3.10/site-packages/pip/_vendor/pep517/in_process/_in_process.py", line 363, in <module>
+          main()
+        File "/mnt/code/ILS/ILS-web-2.0/venv/lib/python3.10/site-packages/pip/_vendor/pep517/in_process/_in_process.py", line 345, in main
+          json_out['return_val'] = hook(**hook_input['kwargs'])
+        File "/mnt/code/ILS/ILS-web-2.0/venv/lib/python3.10/site-packages/pip/_vendor/pep517/in_process/_in_process.py", line 130, in get_requires_for_build_wheel
+          return hook(config_settings)
+        File "/tmp/pip-build-env-sr4kb7s3/overlay/lib/python3.10/site-packages/setuptools/build_meta.py", line 338, in get_requires_for_build_wheel
+          return self._get_build_requires(config_settings, requirements=['wheel'])
+        File "/tmp/pip-build-env-sr4kb7s3/overlay/lib/python3.10/site-packages/setuptools/build_meta.py", line 320, in _get_build_requires
+          self.run_setup()
+        File "/tmp/pip-build-env-sr4kb7s3/overlay/lib/python3.10/site-packages/setuptools/build_meta.py", line 484, in run_setup
+          super(_BuildMetaLegacyBackend,
+        File "/tmp/pip-build-env-sr4kb7s3/overlay/lib/python3.10/site-packages/setuptools/build_meta.py", line 335, in run_setup
+          exec(code, locals())
+        File "<string>", line 27, in <module>
+        File "/tmp/pip-install-08digpb5/mariadb_bd623bbc2ea3436d9ed68789f0c66785/mariadb_posix.py", line 62, in get_config
+          cc_version = mariadb_config(config_prg, "cc_version")
+        File "/tmp/pip-install-08digpb5/mariadb_bd623bbc2ea3436d9ed68789f0c66785/mariadb_posix.py", line 28, in mariadb_config
+          raise EnvironmentError(
+      OSError: mariadb_config not found.
+      
+      This error typically indicates that MariaDB Connector/C, a dependency which
+      must be preinstalled, is not found.
+      If MariaDB Connector/C is not installed, see installation instructions
+      If MariaDB Connector/C is installed, either set the environment variable
+      MARIADB_CONFIG or edit the configuration file 'site.cfg' to set the
+       'mariadb_config' option to the file location of the mariadb_config utility.
+      
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× Getting requirements to build wheel did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
