@@ -34,6 +34,7 @@ In brief, when we commit our changes, GitHub will trigger Jenkins and the Pipeli
 **Jenkins->Job->Configure->Build triggers->"GitHub hook trigger for GITScm polling"**
 
 ## Create a Kubernetes configuration
+Let Kubernetes cluster is existing
 
 ## Deploy and run app in Kubernetes cluster
 
