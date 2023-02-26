@@ -15,8 +15,8 @@ pipeline {
         stage('Checkout Main branch') {
             steps {
                 git branch: 'main',
-                    git credentialsId: 'jenkins-github-demo',
-                    url: 'git@github.com:bullmoon/ILS-web-2.0.git'
+                git credentialsId: 'jenkins-github-demo',
+                url: 'git@github.com:bullmoon/ILS-web-2.0.git'
                 #deleteDir()
                 #checkout scm
             }
