@@ -1,23 +1,40 @@
 pipeline {
+    environment {
+        registry = 'bullhorn/ils2'
+        DOCKERHUB_CREDENTIALS = credentials('jenkins-dockerhub')
+        DOCKER_IMAGE_NAME = "bullhorn/ils2"
+        DOCKER_IMAGE_TAG = "dev"
+    }
     agent {
             label 'Dockerhost'
     }
-    environment {
-        DOCKERHUB = 'bullhorn'
-        IMGNAME = 'ils2'
-        TAG = 'dev'
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
     }
     stages {
-        stage('Clone Repository') {
+        stage('Checkout Main branch') {
             steps {
                 deleteDir()
-                checkout scm
+                git branch: 'main',
+                    credentialsId: 'jenkins-github-bullmoon',
+                    url: 'git@github.com:bullmoon/ILS-web-2.0.git'
             }
         }
-        stage('Build Docker Image') {
+        stage('Check docker image is exists') {
             steps {
-                sh "docker build -f tools/Docker/Dockerfile -t ${DOCKERHUB}/${IMGNAME}:${TAG} ."
+                sh 'if docker image inspect $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG >/dev/null 2>&1; then echo "Docker image exists"; else echo "Docker image does not exist"; fi'
             }
         }
+        stage('Publish Docker image to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'jenkins-bullhorn') {
+                        def dockerImage = docker.image('bullhorn/ils2:dev')
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
+
     }
 }

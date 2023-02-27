@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+            label 'k8s'
+    }
+    
+    environment {
+        DOCKERHUB = 'bullhorn'
+        IMGNAME = 'ils2'
+        TAG = 'dev'
+    }
+    
+    parameters {
+        string(name: 'BRANCH_NAME', defaultValue: 'main', description: 'Name of the branch to build')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: "${params.BRANCH_NAME}", url: 'git@github.com:bullmoon/ILS-web-2.0.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+    }
+}

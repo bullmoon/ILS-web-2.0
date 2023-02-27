@@ -1,8 +1,14 @@
 from flask import Flask, render_template, send_from_directory, request, redirect
 import os
-from src import tables, datalists
+from flask_mysqldb import MySQL
+from src import tables, datalists, e12woct
+import config
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
+app.config.from_object('config')
+
+# Create an instance of the MySQL class
+mysql = MySQL(app)
 
 @app.route('/favicon.ico')
 def favicon():
@@ -31,3 +37,16 @@ def brchoice():
         return render_template('breakerchoice.html', amperages=amperages)
 
     return render_template('breakerchoice.html')
+
+@app.route('/12wct')
+def calc12wct():
+    return render_template('calc_12_with_ct.html')
+#@calc_stripe_lenght()
+
+# Use the connection in a view function
+@app.route('/testsql')
+def testsql():
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT breaker FROM breakers')
+    data = cur.fetchall()
+    return str(data)

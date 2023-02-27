@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table>
+    <thead>
+      <tr>
+        <th colspan="2">calc</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+            <form name="inputdata" action="" method="POST">
+                <fieldset>
+                <legend>Input data:</legend>
+                    <label>Please input number of sets of basbar (1 or 2)</label><br>
+                    <input id="busbar" Value=1><br>
+                
+                    <label>Please input thickness of copper (mm) 10 or 12<br> [parameter "T":]</label><br>
+                    <input type="number" id="thinkness" Value=10><br>
+                
+                    <label>Please input distance from terminal to busbar (mm):</label><br>
+                    <input type="number" id="distBusbarTerm" Value=790><br>
+                
+                    <label>Please input distance from back to terminal (mm):</label><br>
+                    <input type="number" id="distBackTerm" Value=487><br>
+                
+                    <label>Please input amperage (A):</label><br>
+                    <input type="number" id="amperage" Value=1250><br>
+                
+                <button type="button" onclick="StripSize()">Calculate</button> <input type="reset">
+                    </fieldset>
+                </form>
+        </td>
+        <td><img class="wct" src="{{url_for('static', filename='images/e_12_1600_full_01.jpg')}}" alt="Busbar" width="480" /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><img src="{{url_for('static', filename='images/e_1.2.jpg')}}" alt="E1.2" width="480" /></td>
+      </tr>
+    </tbody>
+    </table>
+{% endblock %}

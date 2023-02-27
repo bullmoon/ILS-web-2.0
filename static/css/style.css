@@ -23,6 +23,21 @@ th {
    background-color: lightgray;
 }
 
-td {
-   width: 70px;
+.data td {
+   width: 10px;
+}
+
+.wct table {
+  width: 50%;
+}
+
+.wct td {
+  border: 1px solid;
+  width: 50%;
+}
+
+.wct img {
+  display: block;
+  margin: 0 auto;
+  width: 320px;
 }

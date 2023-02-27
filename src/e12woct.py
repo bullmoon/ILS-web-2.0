@@ -36,4 +36,5 @@ def set_correction():
 
 def calc_stripe_lenght():
     #l3s1 = S1L + S1H1 + shs - (2 * 17) + 1
-    return 200
+    pass
+    #return 200
