@@ -1,3 +1,12 @@
+
+# First steps
+
+- python3 -m venv venv
+- source venv/bin/activate
+- python3 -m pip install -r requirements.txt
+- python run.py
+___
+
 # Application "ILS copper binding v2
 
 This is a demo version of real application.
@@ -34,6 +43,7 @@ In brief, when we commit our changes, GitHub will trigger Jenkins and the Pipeli
 **Jenkins->Job->Configure->Build triggers->"GitHub hook trigger for GITScm polling"**
 
 ## Create a Kubernetes configuration
+
 Let Kubernetes cluster is existing
 
 ## Deploy and run app in Kubernetes cluster
