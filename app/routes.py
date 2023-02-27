@@ -41,7 +41,7 @@ def brchoice():
 @app.route('/12wct')
 def calc12wct():
     return render_template('calc_12_with_ct.html')
-@calc_stripe_lenght()
+#@calc_stripe_lenght()
 
 # Use the connection in a view function
 @app.route('/testsql')
